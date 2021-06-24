@@ -57,7 +57,8 @@ namespace Starter.Api.Controllers
             int newd = rng.Next(direction.Count);
             if (lastd != "")
             {
-                while (oposite[direction.IndexOf(lastd)] != direction[newd])
+                Console.WriteLine($"lastd = {lastd}");
+                while (oposite[direction.IndexOf(lastd)] == direction[newd])
                 {
                     newd = rng.Next(direction.Count);
                 }

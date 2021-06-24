@@ -60,7 +60,10 @@ namespace Starter.Api.Controllers
                 Shout = "I am moving!"
             };
             string lastd = response.Move;
-            Console.WriteLine(gameStatusRequest.You.Body);
+            foreach (var bodypart in gameStatusRequest.You.Body)
+            {
+                Console.WriteLine(bodypart);
+            }
             Console.WriteLine(lastd);
             return Ok(response);
         }

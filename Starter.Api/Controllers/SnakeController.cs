@@ -9,7 +9,8 @@ namespace Starter.Api.Controllers
 {
     [ApiController]
     public class SnakeController : ControllerBase
-    {
+    {   
+        public string lastd = "";
         /// <summary>
         /// This request will be made periodically to retrieve information about your Battlesnake,
         /// including its display options, author, etc.
@@ -51,15 +52,23 @@ namespace Starter.Api.Controllers
         public IActionResult Move(GameStatusRequest gameStatusRequest)
         {
             var direction = new List<string> {"down", "left", "right", "up"};
-            
+            var oposite = new List<string> {"up", "right", "left", "down"};
             var rng = new Random();
+            int newd = rng.Next(direction.Count);
+            if (lastd != "")
+            {
+                while (oposite[direction.IndexOf(lastd)] != direction[newd])
+                {
+                    newd = rng.Next(direction.Count);
+                }
+            }
             
             var response = new MoveResponse
             {
-                Move = direction[rng.Next(direction.Count)],
+                Move = direction[newd],
                 Shout = "I am moving!"
             };
-            string lastd = response.Move;
+            lastd = response.Move;
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 Console.WriteLine(bodypart.X);

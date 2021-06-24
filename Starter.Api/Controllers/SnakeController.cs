@@ -18,11 +18,11 @@ namespace Starter.Api.Controllers
         public IActionResult Index()
         {
             var response = new InitResponse
-            {
+            {   
                 ApiVersion = "1",
                 Author = "",
                 Color = "#FFFFFF",
-                Head = "default",
+                Head = "beluga",
                 Tail = "default"
             };
 

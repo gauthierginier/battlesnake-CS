@@ -51,13 +51,16 @@ namespace Starter.Api.Controllers
         public IActionResult Move(GameStatusRequest gameStatusRequest)
         {
             var direction = new List<string> {"down", "left", "right", "up"};
+            
             var rng = new Random();
-
+            
             var response = new MoveResponse
             {
                 Move = direction[rng.Next(direction.Count)],
                 Shout = "I am moving!"
             };
+            string lastd = response.Move;
+            Console.WriteLine(lastd);
             return Ok(response);
         }
 

@@ -21,7 +21,7 @@ namespace Starter.Api.Controllers
             {   
                 ApiVersion = "1",
                 Author = "",
-                Color = "#FFFFFF",
+                Color = "#C9002F",
                 Head = "beluga",
                 Tail = "default"
             };

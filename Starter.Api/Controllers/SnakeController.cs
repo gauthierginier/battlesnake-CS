@@ -62,7 +62,8 @@ namespace Starter.Api.Controllers
             string lastd = response.Move;
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
-                Console.WriteLine(bodypart);
+                Console.WriteLine(bodypart.X);
+                Console.WriteLine(bodypart.Y);
             }
             Console.WriteLine(lastd);
             return Ok(response);

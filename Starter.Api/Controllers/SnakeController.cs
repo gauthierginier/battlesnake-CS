@@ -68,7 +68,7 @@ namespace Starter.Api.Controllers
             
             while (body.Contains(nextPoint))
             {
-                Console.WriteLine("WARNING : HEAD IN THE BODY")
+                Console.WriteLine("WARNING : HEAD IN THE BODY");
                 newd = rng.Next(direction.Count);
                 if (direction[newd]=="right")
                 {

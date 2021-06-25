@@ -89,9 +89,9 @@ namespace Starter.Api.Controllers
             }
             foreach (var bodypart in body)
             {
-                Console.WriteLine($"{bodypart.X},{bodypart.Y}");
+                Console.WriteLine($"body part : {bodypart.X},{bodypart.Y}");
             }
-            Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
+            Console.WriteLine($"nextpoint : {nextPoint.X},{nextPoint.Y}");
             var response = new MoveResponse
             {
                 Move = direction[newd],

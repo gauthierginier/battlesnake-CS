@@ -65,32 +65,33 @@ namespace Starter.Api.Controllers
             Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
-            
-            while (body.Contains(nextPoint))
+            if (direction[newd]=="right")
             {
-                Console.WriteLine("WARNING : HEAD IN THE BODY");
-                newd = rng.Next(direction.Count);
-                if (direction[newd]=="right")
-                {
-                    //nextPoint = new Point(nextPoint.X+1,nextPoint.Y);
-                    nextPoint.X+=1;
-                }
-                else if (direction[newd]=="left")
-                {
-                    //nextPoint = new Point(nextPoint.X-1,nextPoint.Y);
-                    nextPoint.X-=1;
-                }
-                else if (direction[newd]=="up")
-                {
-                    //nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
-                    nextPoint.Y-=1;
-                }
-                else if (direction[newd]=="down")
-                {
-                    //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
-                    nextPoint.Y+=1;
-                }
+                //nextPoint = new Point(nextPoint.X+1,nextPoint.Y);
+                nextPoint.X+=1;
             }
+            else if (direction[newd]=="left")
+            {
+                //nextPoint = new Point(nextPoint.X-1,nextPoint.Y);
+                nextPoint.X-=1;
+            }
+            else if (direction[newd]=="up")
+            {
+                //nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
+                nextPoint.Y-=1;
+            }
+            else if (direction[newd]=="down")
+            {
+                //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
+                nextPoint.Y+=1;
+            }
+            Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
+            //while (body.Contains(nextPoint))
+            //{
+                //Console.WriteLine("WARNING : HEAD IN THE BODY");
+                //newd = rng.Next(direction.Count);
+                // if forest  
+            //}
             foreach (var bodypart in body)
             {
                 Console.WriteLine($"body part : {bodypart.X},{bodypart.Y}");

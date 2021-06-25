@@ -60,6 +60,7 @@ namespace Starter.Api.Controllers
                 Console.WriteLine($"lastd = {lastd}");
                 while (oposite[direction.IndexOf(lastd)] == direction[newd])
                 {
+                    Console.WriteLine("same D");
                     newd = rng.Next(direction.Count);
                 }
             }
@@ -72,8 +73,8 @@ namespace Starter.Api.Controllers
             lastd = response.Move;
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
-                Console.WriteLine(bodypart.X);
-                Console.WriteLine(bodypart.Y);
+                Console.WriteLine($"{bodypart.X}, {bodypart.Y}");
+                //Console.WriteLine(bodypart.Y);
             }
             Console.WriteLine(lastd);
             return Ok(response);

@@ -69,6 +69,7 @@ namespace Starter.Api.Controllers
             int newd = rng.Next(direction.Count);
             while (body.Contains(nextPoint))
             {   
+                Console.WriteLine("Head in body");
                 nextPoint = gameStatusRequest.You.Head;
                 newd = rng.Next(direction.Count);
                 if (direction[newd]=="right")

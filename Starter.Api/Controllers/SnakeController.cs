@@ -68,7 +68,8 @@ namespace Starter.Api.Controllers
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
             while (body.Contains(nextPoint))
-            {
+            {   
+                nextPoint = gameStatusRequest.You.Head;
                 newd = rng.Next(direction.Count);
                 if (direction[newd]=="right")
                 {

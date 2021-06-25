@@ -55,13 +55,17 @@ namespace Starter.Api.Controllers
             var direction = new List<string> {"down", "left", "right", "up"};
             var body = new List<Point> {};
             var rng = new Random();
-            int newd = rng.Next(direction.Count);
+            //////////nextPoint is init at head point
+            var nextPoint = gameStatusRequest.You.Head;
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 body.Add(bodypart);
             }
-            Console.WriteLine(body[0]);
-            Console.WriteLine(body[0].Y);
+            Console.WriteLine($"head position : {body[0].X},{body[0].Y}");
+            Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
+            //////////Nouvelle direction
+            int newd = rng.Next(direction.Count);
+
             var response = new MoveResponse
             {
                 Move = direction[newd],

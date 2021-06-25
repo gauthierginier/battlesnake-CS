@@ -68,8 +68,10 @@ namespace Starter.Api.Controllers
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
             bool headinbody = true;
-            while (headinbody==true)
+            bool headinwall = true;
+            while (headinbody==true || headinwall==true)
             {   
+                headinwall = false;
                 headinbody = false;
                 Console.WriteLine("Head in body");
                 nextPoint.X = body[0].X;
@@ -101,6 +103,10 @@ namespace Starter.Api.Controllers
                     {
                         headinbody=true;
                     }
+                }
+                if (nextPoint.X < 0 || nextPoint.X > 10 || nextPoint.Y < 0 || nextPoint.Y > 10 )
+                {
+                    headinwall = true;
                 }
             }
             //Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");

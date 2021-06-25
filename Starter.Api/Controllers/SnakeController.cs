@@ -72,19 +72,23 @@ namespace Starter.Api.Controllers
                 newd = rng.Next(direction.Count);
                 if (direction[newd]=="right")
                 {
-                    nextPoint = new Point(nextPoint.X+1,nextPoint.Y);
+                    //nextPoint = new Point(nextPoint.X+1,nextPoint.Y);
+                    nextPoint.X+=1;
                 }
                 else if (direction[newd]=="left")
                 {
-                    nextPoint = new Point(nextPoint.X-1,nextPoint.Y);
+                    //nextPoint = new Point(nextPoint.X-1,nextPoint.Y);
+                    nextPoint.X-=1;
                 }
                 else if (direction[newd]=="up")
                 {
-                    nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
+                    //nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
+                    nextPoint.Y-=1;
                 }
                 else if (direction[newd]=="down")
                 {
-                    nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
+                    //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
+                    nextPoint.Y+=1;
                 }
             }
             foreach (var bodypart in body)

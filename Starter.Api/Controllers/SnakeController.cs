@@ -55,28 +55,28 @@ namespace Starter.Api.Controllers
             var oposite = new List<string> {"up", "right", "left", "down"};
             var rng = new Random();
             int newd = rng.Next(direction.Count);
-            if (lastd != "")
+            if (this.lastd != "")
             {
-                Console.WriteLine($"lastd = {lastd}");
-                while (oposite[direction.IndexOf(lastd)] == direction[newd])
+                Console.WriteLine($"lastd = {this.lastd}");
+                while (oposite[direction.IndexOf(this.lastd)] == direction[newd])
                 {
                     Console.WriteLine("same D");
                     newd = rng.Next(direction.Count);
                 }
             }
-            Console.WriteLine($"lastd = {lastd}");
+            Console.WriteLine($"lastd = {this.lastd}");
             var response = new MoveResponse
             {
                 Move = direction[newd],
                 Shout = "I am moving!"
             };
-            lastd = response.Move;
+            this.lastd = direction[newd];
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 Console.WriteLine($"{bodypart.X}, {bodypart.Y}");
                 //Console.WriteLine(bodypart.Y);
             }
-            Console.WriteLine(lastd);
+            Console.WriteLine(this.lastd);
             return Ok(response);
         }
 

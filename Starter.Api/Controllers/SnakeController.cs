@@ -66,6 +66,26 @@ namespace Starter.Api.Controllers
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
             
+            while (body.Contains(nextPoint))
+            {
+                newd = rng.Next(direction.Count);
+                if (direction[newd]=="right")
+                {
+                    nextPoint = new Point(nextPoint.X+1,nextPoint.Y);
+                }
+                else if (direction[newd]=="left")
+                {
+                    nextPoint = new Point(nextPoint.X-1,nextPoint.Y);
+                }
+                else if (direction[newd]=="up")
+                {
+                    nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
+                }
+                else if (direction[newd]=="down")
+                {
+                    nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
+                }
+            }
 
             var response = new MoveResponse
             {

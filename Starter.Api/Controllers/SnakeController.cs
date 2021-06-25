@@ -53,18 +53,20 @@ namespace Starter.Api.Controllers
         public IActionResult Move(GameStatusRequest gameStatusRequest)
         {
             var direction = new List<string> {"down", "left", "right", "up"};
+            var body = new List<Point> {};
             var rng = new Random();
             int newd = rng.Next(direction.Count);
+            foreach (var bodypart in gameStatusRequest.You.Body)
+            {
+                body.Add(bodypart);
+            }
+            Console.WriteLine(body[0]);
+            Console.WriteLine(body[0].Y);
             var response = new MoveResponse
             {
                 Move = direction[newd],
                 Shout = "I am moving!"
             };
-            foreach (var bodypart in gameStatusRequest.You.Body)
-            {
-                Console.WriteLine($"{bodypart.X}, {bodypart.Y}");
-                //Console.WriteLine(bodypart.Y);
-            }
             return Ok(response);
         }
 

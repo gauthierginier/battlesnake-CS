@@ -57,7 +57,7 @@ namespace Starter.Api.Controllers
             var head = gameStatusRequest.You.Head;
             var rng = new Random();
             //////////nextPoint is init at head point
-            var nextPoint = gameStatusRequest.You.Head;
+            var nextPoint =  new Point(gameStatusRequest.You.Head.X,gameStatusRequest.You.Head.Y);
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 body.Add(bodypart);
@@ -72,8 +72,7 @@ namespace Starter.Api.Controllers
             {   
                 headinbody = false;
                 Console.WriteLine("Head in body");
-                nextPoint.X = gameStatusRequest.You.Head.X;
-                nextPoint.Y = gameStatusRequest.You.Head.Y;
+                nextPoint = body[0];
                 newd = rng.Next(direction.Count);
                 if (direction[newd]=="right")
                 {

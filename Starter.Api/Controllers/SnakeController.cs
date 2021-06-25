@@ -67,8 +67,10 @@ namespace Starter.Api.Controllers
             //Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
-            while (body.Contains(nextPoint))
+            bool headinbody = true;
+            while (headinbody==true)
             {   
+                headinbody = false;
                 Console.WriteLine("Head in body");
                 nextPoint = gameStatusRequest.You.Head;
                 newd = rng.Next(direction.Count);
@@ -91,6 +93,13 @@ namespace Starter.Api.Controllers
                 {
                     //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
                     nextPoint.Y-=1;
+                }
+                foreach (var bodypart in body)
+                {  
+                    if (bodypart.X == nextPoint.X && bodypart.Y == nextPoint.Y)
+                    {
+                        headinbody=true;
+                    }
                 }
             }
             //Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");

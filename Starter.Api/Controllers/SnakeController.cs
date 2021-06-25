@@ -80,12 +80,12 @@ namespace Starter.Api.Controllers
             else if (direction[newd]=="up")
             {
                 //nextPoint = new Point(nextPoint.X,nextPoint.Y-1);
-                nextPoint.Y-=1;
+                nextPoint.Y+=1;
             }
             else if (direction[newd]=="down")
             {
                 //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
-                nextPoint.Y+=1;
+                nextPoint.Y-=1;
             }
             //Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
             //while (body.Contains(nextPoint))

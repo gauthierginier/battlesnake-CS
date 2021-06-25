@@ -11,7 +11,7 @@ namespace Starter.Api.Controllers
     public class SnakeController : ControllerBase
     {   
         //public string lastd = "";
-        public string lastd { get; set; }
+        //public string lastd { get; set; }
         /// <summary>
         /// This request will be made periodically to retrieve information about your Battlesnake,
         /// including its display options, author, etc.
@@ -53,31 +53,18 @@ namespace Starter.Api.Controllers
         public IActionResult Move(GameStatusRequest gameStatusRequest)
         {
             var direction = new List<string> {"down", "left", "right", "up"};
-            var oposite = new List<string> {"up", "right", "left", "down"};
             var rng = new Random();
             int newd = rng.Next(direction.Count);
-            if (this.lastd != "")
-            {
-                Console.WriteLine($"lastd = {this.lastd}");
-                while (oposite[direction.IndexOf(this.lastd)] == direction[newd])
-                {
-                    Console.WriteLine("same D");
-                    newd = rng.Next(direction.Count);
-                }
-            }
-            Console.WriteLine($"lastd = {this.lastd}");
             var response = new MoveResponse
             {
                 Move = direction[newd],
                 Shout = "I am moving!"
             };
-            this.lastd = direction[newd];
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 Console.WriteLine($"{bodypart.X}, {bodypart.Y}");
                 //Console.WriteLine(bodypart.Y);
             }
-            Console.WriteLine($"I go {this.lastd}!");
             return Ok(response);
         }
 

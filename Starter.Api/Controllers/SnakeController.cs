@@ -65,12 +65,14 @@ namespace Starter.Api.Controllers
             Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
+            
 
             var response = new MoveResponse
             {
                 Move = direction[newd],
                 Shout = "I am moving!"
             };
+            Console.WriteLine($"I move {direction[newd]}");
             return Ok(response);
         }
 

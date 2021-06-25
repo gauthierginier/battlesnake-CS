@@ -10,7 +10,8 @@ namespace Starter.Api.Controllers
     [ApiController]
     public class SnakeController : ControllerBase
     {   
-        public string lastd = "";
+        //public string lastd = "";
+        public string lastd { get; set; }
         /// <summary>
         /// This request will be made periodically to retrieve information about your Battlesnake,
         /// including its display options, author, etc.
@@ -76,7 +77,7 @@ namespace Starter.Api.Controllers
                 Console.WriteLine($"{bodypart.X}, {bodypart.Y}");
                 //Console.WriteLine(bodypart.Y);
             }
-            Console.WriteLine(this.lastd);
+            Console.WriteLine($"I go {this.lastd}!");
             return Ok(response);
         }
 

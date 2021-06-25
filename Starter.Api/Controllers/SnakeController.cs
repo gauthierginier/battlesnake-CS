@@ -87,7 +87,11 @@ namespace Starter.Api.Controllers
                     nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
                 }
             }
-
+            foreach (var bodypart in body)
+            {
+                Console.WriteLine($"{bodypart.X},{bodypart.Y}");
+            }
+            Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
             var response = new MoveResponse
             {
                 Move = direction[newd],

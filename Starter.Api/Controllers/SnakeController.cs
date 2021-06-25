@@ -54,15 +54,17 @@ namespace Starter.Api.Controllers
         {
             var direction = new List<string> {"down", "left", "right", "up"};
             var body = new List<Point> {};
+            var head = gameStatusRequest.You.Head;
             var rng = new Random();
             //////////nextPoint is init at head point
             var nextPoint = gameStatusRequest.You.Head;
             foreach (var bodypart in gameStatusRequest.You.Body)
             {
                 body.Add(bodypart);
+                Console.WriteLine($"body part : {bodypart.X},{bodypart.Y}");
             }
-            Console.WriteLine($"head position : {body[0].X},{body[0].Y}");
-            Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
+            Console.WriteLine($"head position : {head.X},{head.Y}");
+            //Console.WriteLine($"throat position : {body[1].X},{body[1].Y}");
             //////////Nouvelle direction
             int newd = rng.Next(direction.Count);
             if (direction[newd]=="right")
@@ -85,17 +87,13 @@ namespace Starter.Api.Controllers
                 //nextPoint = new Point(nextPoint.X,nextPoint.Y+1);
                 nextPoint.Y+=1;
             }
-            Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
+            //Console.WriteLine($"{nextPoint.X},{nextPoint.Y}");
             //while (body.Contains(nextPoint))
             //{
                 //Console.WriteLine("WARNING : HEAD IN THE BODY");
                 //newd = rng.Next(direction.Count);
                 // if forest  
             //}
-            foreach (var bodypart in body)
-            {
-                Console.WriteLine($"body part : {bodypart.X},{bodypart.Y}");
-            }
             Console.WriteLine($"nextpoint : {nextPoint.X},{nextPoint.Y}");
             var response = new MoveResponse
             {

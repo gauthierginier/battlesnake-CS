@@ -63,7 +63,7 @@ namespace Starter.Api.Controllers
                     newd = rng.Next(direction.Count);
                 }
             }
-            
+            Console.WriteLine($"lastd = {lastd}");
             var response = new MoveResponse
             {
                 Move = direction[newd],

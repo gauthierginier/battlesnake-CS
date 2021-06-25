@@ -55,6 +55,7 @@ namespace Starter.Api.Controllers
             var direction = new List<string> {"down", "left", "right", "up"};
             var body = new List<Point> {};
             var head = gameStatusRequest.You.Head;
+            var boardSizes = new List<int> {gameStatusRequest.Board.Width, gameStatusRequest.Board.Height};
             var rng = new Random();
             //////////nextPoint is init at head point
             var nextPoint =  new Point(gameStatusRequest.You.Head.X,gameStatusRequest.You.Head.Y);
@@ -104,7 +105,7 @@ namespace Starter.Api.Controllers
                         headinbody=true;
                     }
                 }
-                if (nextPoint.X < 0 || nextPoint.X > 10 || nextPoint.Y < 0 || nextPoint.Y > 10 )
+                if (nextPoint.X < 0 || nextPoint.X >= boardSizes[0] || nextPoint.Y < 0 || nextPoint.Y >= boardSizes[1] )
                 {
                     headinwall = true;
                 }
